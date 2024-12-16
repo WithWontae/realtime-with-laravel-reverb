@@ -2,6 +2,8 @@
 
 use App\Events\Example;
 use App\Http\Controllers\ProfileController;
+use App\Models\Message;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -9,7 +11,7 @@ Route::get('/', function () {
 });
 
 Route::get('/broadcast', function () {
-    broadcast(new Example());
+    broadcast(new Example(User::find(1), Message::find(1)));
 });
 
 Route::get('/dashboard', function () {
